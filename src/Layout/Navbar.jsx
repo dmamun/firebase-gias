@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthPrivider";
 
 const Navbar = () => {
-    const {user}=useContext(AuthContext);
+    const {user,logOut}=useContext(AuthContext);
+    const logOutFunction=()=>{
+        logOut()
+        .then(()=>{
+            console.log("sign out successful")
+        })
+    }
 
   return (
     <div>
@@ -72,7 +78,7 @@ const Navbar = () => {
             {
                 user && <p>{user.email}</p>
             }
-          <a className="btn">Button</a>
+          <a onClick={logOutFunction} className="btn">LogOut</a>
         </div>
       </div>
     </div>
