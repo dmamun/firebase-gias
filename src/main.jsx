@@ -12,6 +12,7 @@ import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
 import List from './Components/List.jsx';
 import AuthPrivider from './AuthProvider/AuthPrivider.jsx';
+import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/list",
-        element:<List></List>
+        element:<PrivateRoute><List></List></PrivateRoute>
       }
     ]
   },
